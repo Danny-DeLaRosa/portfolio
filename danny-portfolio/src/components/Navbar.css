@@ -1,0 +1,50 @@
+.active {
+  background-color: white;
+  color: black;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  position: sticky;
+  position: sticky;
+  top: 0;
+}
+
+nav .title {
+  font-size: 3rem;
+  margin: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style-type: none;
+}
+
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 7px;
+  margin: 0 10px;
+  font-size: 2rem;
+}
+
+nav ul li a:not(.active):hover {
+  background-color: white;
+  color: black;
+}
+
+.Icon {
+  height: 25px;
+  width: 25x;
+  background-color: white;
+}
