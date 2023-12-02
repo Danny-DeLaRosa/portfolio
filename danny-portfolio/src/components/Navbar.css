@@ -1,3 +1,7 @@
+* {
+  font-family: 'SF Pro','Inter',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;;
+}
+
 .active {
   background-color: white;
   color: black;
@@ -13,7 +17,7 @@ nav {
   top: 0;
 }
 
-nav .title {
+nav .title, nav .title:hover {
   font-size: 3rem;
   margin: 1rem;
   font-weight: bold;
@@ -38,10 +42,16 @@ nav ul li a {
   font-size: 2rem;
 }
 
+nav ul li a:hover {
+  background-color: white;
+  color: black;
+}
+
 nav ul li a:not(.active):hover {
   background-color: white;
   color: black;
 }
+
 
 .Icon {
   height: 25px;
