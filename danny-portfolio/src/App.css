@@ -1,0 +1,23 @@
+ul li {
+  list-style-type: none;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.App {
+  background-color: black;
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+
+.Header {
+  background-color: aliceblue;
+}
+
+.DropDown {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+}
+
