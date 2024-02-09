@@ -64,30 +64,37 @@ function Home() {
       "SOCIAL - Social media pages.\n",
       "CLEAR - Clear the terminal.",
     ];
-    if (command == "secret") {
-      return "Please enter password:";
-    } else if (command === "projects") {
+    if (command == "projects") {
       window.open(
         "https://github.com/Danny-DeLaRosa?tab=repositories",
         "_blank"
       );
     } else if (command === "about") {
       return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Diam in arcu cursus euismod quis viverra nibh. Quam pellentesque nec nam aliquam sem. Rhoncus dolor purus non enim praesent elementum facilisis leo.";
-    } else if (command === "help") {
-      return listOfCommands;
+    } else if (command === "secret") {
+      return "Please enter password:";
     } else if (command === "password") {
-      setUser("Admin@keggedout.com~~");
       window.open(
         "https://youtu.be/dQw4w9WgXcQ?si=fBDDtHiTRFIwu6L2&t=43",
         "_blank"
       );
-    } else if (command === "home") {
-      setUser("Visitor@Danny_the_Dev~~");
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-
-      return "Opening Kegged Out...";
+    } else if (command === "help") {
+      return listOfCommands;
+    } else if (command === "social") {
+      return [
+        "\nLINKEDIN - www.linkedin.com/in/dannydlr\n",
+        "GITHUB - www.github.com/Danny-DeLaRosa\n",
+        "YOUTUBE - @DannytheDev",
+      ];
+    } else if (command === "linkedin") {
+      window.open("https://www.linkedin.com/in/dannydlr/", "_blank");
+    } else if (command === "github") {
+      window.open("https://github.com/Danny-DeLaRosa", "_blank");
+    } else if (command === "youtube") {
+      window.open(
+        "https://www.youtube.com/channel/UC2RW4ZXG5kPol2cdLxmkCNw",
+        "_blank"
+      );
     } else {
       setUser("Visitor@Danny_the_Dev~~");
       return `'${command}' was not recognized, type 'help' for a list of available commands`;
@@ -96,7 +103,7 @@ function Home() {
 
   const [words, setWords] = useState([]);
   useEffect(() => {
-    fetch('https://api.datamuse.com/words?rel_jjb=coding')
+    fetch("https://api.datamuse.com/words?rel_jjb=coding")
       .then((res) => {
         return res.json();
       })
@@ -105,7 +112,7 @@ function Home() {
         setWords(data);
       });
   }, []);
-  let randomNumber = Math.floor(Math.random() * words.length)
+  let randomNumber = Math.floor(Math.random() * words.length);
   console.log(randomNumber);
   let password = words[randomNumber].word;
   console.log(`password: ${password}`);
