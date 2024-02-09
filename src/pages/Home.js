@@ -1,20 +1,31 @@
 import "./Pages.css";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState([]);
   const [welcomeMessage, setWelcomeMessage] = useState(
     "Welcome to my portfolio!"
   );
   const [commandMessage, setCommandMessage] = useState("");
-  const [user, setUser] = useState("visitor@Danny_the_Dev~~");
-  const [input, setInput] = useState("");
-  const [output, setOutput] = useState([]);
-  console.log(output);
+  const [user, setUser] = useState("Visitor@Danny_the_Dev~~");
+  const navigate = useNavigate();
+  setTimeout(() => {
+    setWelcomeMessage("");
+    setCommandMessage(
+      "please enter a command, input 'help' for a list of commands"
+    );
+  }, 7000);
+
   const inputRef = useRef();
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
+  const handleClick = (e) => {
+    inputRef.current.focus();
+  };
 
   const terminalRef = useRef(null);
   useEffect(() => {
@@ -23,12 +34,10 @@ function Home() {
     }
   }, [output]);
 
-  const commandResponse = (command) => {
-    if (command === "help") {
-      setOutput("list of commands");
-    }
+  const handleChange = (e) => {
+    setInput(e.target.value.toLowerCase());
   };
-  
+
   const handleKeyDown = (e) => {
     let key = e.key;
     if (key === "Enter") {
@@ -46,44 +55,99 @@ function Home() {
     }
   };
 
-  const handleChange = (e) => {
-    setInput(e.target.value);
+  const commandResponse = (command) => {
+    let listOfCommands = [
+      "\nPROJECTS - This will take you to my projects page.\n",
+      "ABOUT - About Danny De La Rosa.\n",
+      "SECRET - 🤫\n",
+      "HELP - List of commands.\n",
+      "SOCIAL - Social media pages.\n",
+      "CLEAR - Clear the terminal.",
+    ];
+    if (command == "secret") {
+      return "Please enter password:";
+    } else if (command === "projects") {
+      window.open(
+        "https://github.com/Danny-DeLaRosa?tab=repositories",
+        "_blank"
+      );
+    } else if (command === "about") {
+      return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Diam in arcu cursus euismod quis viverra nibh. Quam pellentesque nec nam aliquam sem. Rhoncus dolor purus non enim praesent elementum facilisis leo.";
+    } else if (command === "help") {
+      return listOfCommands;
+    } else if (command === "password") {
+      setUser("Admin@keggedout.com~~");
+      window.open(
+        "https://youtu.be/dQw4w9WgXcQ?si=fBDDtHiTRFIwu6L2&t=43",
+        "_blank"
+      );
+    } else if (command === "home") {
+      setUser("Visitor@Danny_the_Dev~~");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+
+      return "Opening Kegged Out...";
+    } else {
+      setUser("Visitor@Danny_the_Dev~~");
+      return `'${command}' was not recognized, type 'help' for a list of available commands`;
+    }
   };
 
-  const navigate = useNavigate();
-
-  setTimeout(() => {
-    setWelcomeMessage("");
-    setCommandMessage(
-      "please enter a command, input 'help' for a list of commands"
-    );
-  }, 10000);
-
+  const [words, setWords] = useState([]);
+  useEffect(() => {
+    fetch('https://api.datamuse.com/words?rel_jjb=coding')
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setWords(data);
+      });
+  }, []);
+  let randomNumber = Math.floor(Math.random() * words.length)
+  console.log(randomNumber);
+  let password = words[randomNumber].word;
+  console.log(`password: ${password}`);
   return (
-    <main ref={terminalRef}>
-      <div className="title-bar">
-        <div className="title-bar-buttons">
-          <button id="button-one"></button>
-          <button id="button-two"></button>
+    <>
+      <main onClick={handleClick}>
+        <div className="title-bar">
+          <div className="title-bar-buttons">
+            <button id="button-one"></button>
+            <button id="button-two"></button>
+          </div>
+          <h1>Portfolio -- User@Danny_the_Dev --</h1>
         </div>
-        <h1>Portfolio -- User@Danny_the_Dev --</h1>
-      </div>
-      <div className="terminal-container">
-        <div className="welcome-text">{welcomeMessage}</div>
-        <div className="command-text">{commandMessage}</div>
-        <div className="input">
-          {user}
-          <input
-            ref={inputRef}
-            type="text"
-            value={input}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            maxLength="99"
-          />
+        <div ref={terminalRef} className="terminal-container">
+          <div className="welcome-message">{welcomeMessage}</div>
+          <div className="command-message">{commandMessage}</div>
+          <div className="output">
+            {output.map((value, index) => (
+              <div key={index} className="response">
+                {user} {value.command}
+                <br />
+                {value.response}
+                <br />
+                <br />
+              </div>
+            ))}
+          </div>
+
+          <div className="input">
+            {user}
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              maxLength="99"
+            />
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
 

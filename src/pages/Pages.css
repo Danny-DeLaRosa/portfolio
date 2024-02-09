@@ -1,9 +1,18 @@
 /* Home Page */
 @keyframes type {
   from {
-    width: 0;
+    width: 0px;
   }
 }
+
+@keyframes response {
+    from {
+      color: transparent;
+    }
+    to {
+      color: inherit;
+    }
+  }
 
 .title-bar {
   height: 30px;
@@ -52,34 +61,48 @@
   margin: auto;
   text-align: start;
   padding: 10px;
+  overflow: hidden;
 }
 
-.welcome-text {
+.welcome-message {
+  color: inherit;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  animation: type 3s steps(60, end);
+}
+
+.command-message {
   color: inherit;
   font-size: 20px;
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
   animation: type 5s steps(60, end);
-}
-
-.command-text {
-  color: inherit;
-  font-size: 20px;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 100%;
-  animation: type 5s steps(60, end);
-  animation-delay: 10s;
+  animation-delay: 7s;
 }
 
 .input {
   display: flex;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .input input {
-  background-color: red;
   width: 100%;
-  border: white solid;
+  border: none;
+  outline: none;
+}
+
+.output {
+  white-space: pre-line;
+  word-wrap: break-word;
+  margin-top: 10px;
+}
+
+.response {
+  font-size: 20px;
+  width: 100%;
+  animation: response 1s steps(60, end);
 }
