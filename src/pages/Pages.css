@@ -6,13 +6,13 @@
 }
 
 @keyframes response {
-    from {
-      color: transparent;
-    }
-    to {
-      color: inherit;
-    }
+  from {
+    color: transparent;
   }
+  to {
+    color: inherit;
+  }
+}
 
 .title-bar {
   height: 30px;
@@ -25,6 +25,11 @@
   display: flex;
   justify-content: center;
   border: white solid;
+}
+
+.title-bar h1 {
+  margin: auto;
+  font-size: 16px;
 }
 
 .title-bar-buttons {
@@ -49,11 +54,6 @@
   background-color: green;
 }
 
-.title-bar h1 {
-  margin: auto;
-  font-size: 16px;
-}
-
 .terminal-container {
   border: white solid;
   width: 75%;
@@ -61,7 +61,8 @@
   margin: auto;
   text-align: start;
   padding: 10px;
-  overflow: hidden;
+  overflow: scroll;
+  scrollbar-width: none;
 }
 
 .welcome-message {
@@ -70,7 +71,7 @@
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
-  animation: type 3s steps(60, end);
+  animation: type 2s steps(60, end);
 }
 
 .command-message {
@@ -79,8 +80,14 @@
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
-  animation: type 5s steps(60, end);
-  animation-delay: 7s;
+  animation: type 2s steps(60, end);
+  animation-delay: 5s;
+}
+
+.list-commands {
+  white-space: pre-line;
+  word-wrap: break-word;
+  margin-bottom: 30px;
 }
 
 .input {
@@ -106,3 +113,78 @@
   width: 100%;
   animation: response 1s steps(60, end);
 }
+
+/* @media screen and (max-width: 480px) {
+  .title-bar {
+    height: 0;
+    width: 0%;
+    text-align: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 0;
+    font-size: 0px;
+    display: none;
+    justify-content: none;
+    border: none;
+  }
+
+  .title-bar h1 {
+    margin: none;
+    font-size: 0px;
+  }
+
+  .terminal-container {
+    border: none;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    text-align: start;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  .welcome-message {
+    color: inherit;
+    font-size: 14px;
+    white-space: normal;
+    overflow: visible;
+    width: 100%;
+  }
+
+  .command-message {
+    color: inherit;
+    font-size: 14px;
+    white-space: normal;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .input {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .input input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    caret-color: teal;
+    color: teal;
+  }
+
+  .output {
+    white-space: pre-line;
+    word-wrap: break-word;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .response {
+    font-size: 20px;
+    width: 100%;
+    font-size: 14px;
+  }
+} */
