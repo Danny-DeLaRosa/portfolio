@@ -10,6 +10,7 @@ function Home() {
     "Welcome to my portfolio!"
   );
   const [commandMessage, setCommandMessage] = useState("");
+  const [list, setList] = useState("")
   const [user, setUser] = useState("Visitor@Danny_the_Dev~~");
   const [words, setWords] = useState([]);
   const [password, setPassword] = useState("");
@@ -21,14 +22,14 @@ function Home() {
 
   // useEffects
   useEffect(() => {
-    if (terminalRef.current) {
+    if (terminalRef.current) { // Keeps the terminal reference at the bottom of the terminal
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
   }, [output]);
-  useEffect(() => {
+  useEffect(() => { //Focus on input on login
     inputRef.current.focus();
   }, []);
-  useEffect(() => {
+  useEffect(() => { //API fetch
     fetch("https://api.datamuse.com/words?rel_jjb=coding")
       .then((res) => {
         return res.json();
@@ -38,24 +39,17 @@ function Home() {
         setWords(data);
       });
   }, []);
-
-  setTimeout(() => {
-    setWelcomeMessage("");
-    setCommandMessage(
-      "please enter a command, input 'help' for a list of commands"
-    );
-  }, 7000);
-
+  
   // functions
+  // this function handles the click function on the entire page.
   const handleClick = (e) => {
     inputRef.current.focus();
   };
-
+  // this function handles the input field fill
   const handleChange = (e) => {
     setInput(e.target.value.toLowerCase());
   };
-
-  
+  // this function handles the the actions on hitting the enter key
   const handleKeyDown = (e) => {
     let key = e.key;
     if (key === "Enter") {
@@ -71,24 +65,29 @@ function Home() {
         setInput("");
       }
     }
-  }; 
-  
-  
+  };
+  // these functions handles the command response
+  const listOfCommands = [
+    "\nPROJECTS - This will take you to my projects page.\n",
+    "ABOUT - About Danny De La Rosa.\n",
+    "SECRET - 🤫\n",
+    "HELP - List of commands.\n",
+    "SOCIAL - Social media pages.\n",
+    "CLEAR - Clear the terminal.",
+  ];
+  setTimeout(() => {
+    setWelcomeMessage("");
+    setCommandMessage(
+      `please enter a command, here is a list of commands you can use:`
+    );
+    setList(listOfCommands.join("\n"));
+  }, 5000);
   const commandResponse = (command) => {
     let randomNumber = Math.floor(Math.random() * words.length); // random number between 0 and length of words array
     let randomWord = words[randomNumber]; // generate random word from words array based on random number
-    let word = randomWord.word
-    console.log(word)
-    let commandPassword = password
-    console.log(commandPassword)
-    let listOfCommands = [
-      "\nPROJECTS - This will take you to my projects page.\n",
-      "ABOUT - About Danny De La Rosa.\n",
-      "SECRET - 🤫\n",
-      "HELP - List of commands.\n",
-      "SOCIAL - Social media pages.\n",
-      "CLEAR - Clear the terminal.",
-    ];
+    let word = randomWord.word;
+    let commandPassword = password;
+    
     if (command == "projects") {
       window.open(
         "https://github.com/Danny-DeLaRosa?tab=repositories",
@@ -141,6 +140,7 @@ function Home() {
         <div ref={terminalRef} className="terminal-container">
           <div className="welcome-message">{welcomeMessage}</div>
           <div className="command-message">{commandMessage}</div>
+          <div className="list-commands">{list}</div>
           <div className="output">
             {output.map((value, index) => (
               <div key={index} className="response">

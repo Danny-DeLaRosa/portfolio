@@ -1,9 +1,5 @@
 /* Home Page */
-html {
-  height: 100%;
-}
-
-keyframes type {
+@keyframes type {
   from {
     width: 0px;
   }
@@ -65,7 +61,8 @@ keyframes type {
   margin: auto;
   text-align: start;
   padding: 10px;
-  overflow: hidden;
+  overflow: scroll;
+  scrollbar-width: none;
 }
 
 .welcome-message {
@@ -74,7 +71,7 @@ keyframes type {
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
-  animation: type 3s steps(60, end);
+  animation: type 2s steps(60, end);
 }
 
 .command-message {
@@ -83,8 +80,14 @@ keyframes type {
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
-  animation: type 5s steps(60, end);
-  animation-delay: 7s;
+  animation: type 2s steps(60, end);
+  animation-delay: 5s;
+}
+
+.list-commands {
+  white-space: pre-line;
+  word-wrap: break-word;
+  margin-bottom: 30px;
 }
 
 .input {
@@ -106,27 +109,12 @@ keyframes type {
 }
 
 .response {
-  color: teal;
   font-size: 20px;
   width: 100%;
   animation: response 1s steps(60, end);
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
-  @keyframes type {
-    from {
-      height: 0px;
-    }
-  }
-
-  @keyframes response {
-    from {
-      color: transparent;
-    }
-    to {
-      color: teal;
-    }
-  }
+/* @media screen and (max-width: 480px) {
   .title-bar {
     height: 0;
     width: 0%;
@@ -153,7 +141,6 @@ keyframes type {
     text-align: start;
     padding: 10px;
     overflow: hidden;
-    animation: none;
   }
 
   .welcome-message {
@@ -162,7 +149,6 @@ keyframes type {
     white-space: normal;
     overflow: visible;
     width: 100%;
-    animation: none;
   }
 
   .command-message {
@@ -186,7 +172,7 @@ keyframes type {
     outline: none;
     font-size: 14px;
     caret-color: teal;
-    color:teal
+    color: teal;
   }
 
   .output {
@@ -197,10 +183,8 @@ keyframes type {
   }
 
   .response {
-    
     font-size: 20px;
     width: 100%;
     font-size: 14px;
-    animation: response 1s steps(60, end);
   }
-}
+} */
