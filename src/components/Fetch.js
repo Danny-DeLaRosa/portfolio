@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+
 const Fetch = () => {
   const [words, setWords] = useState([]);
+
   useEffect(() => {
-    fetch('https://api.datamuse.com/words?rel_jjb=coding')
+    fetch("https://api.datamuse.com/words?rel_jjb=coding")
       .then((res) => {
         return res.json();
       })
@@ -11,10 +13,7 @@ const Fetch = () => {
         setWords(data);
       });
   }, []);
-  return (
-    <div>
-    {words.word}
-    </div>
-  );
+
+  return <div>{words.word}</div>;
 };
 export default Fetch;
