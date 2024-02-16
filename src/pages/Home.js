@@ -132,6 +132,7 @@ function Home() {
         "_blank"
       );
     } else if (command === "about") {
+      navigate("/about")
       return "Hey! My name is Danny De La Rosa, a full-stack junior software engineer with an emphasis on backend development. I enjoy collaborating on fun projects; if you are interested in working together, please feel free to reach out! I hail from San Diego, CA, and have a special love for beer, coffee, and food! Let's grab a drink if you're in my neighborhood! ";
     } else if (command === "secret") {
       setPassword(word);
