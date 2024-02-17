@@ -149,7 +149,7 @@
   color: white;
   font-size: 30px;
   text-align: center;
-  position: fixed;
+  margin-right: auto;
 }
 
 .about-text p {
@@ -161,5 +161,5 @@
   margin-top: 50px;
   align-items: center;
   font-size:large ;
-
 }
+
