@@ -150,6 +150,7 @@
   font-size: 30px;
   text-align: center;
   margin-right: auto;
+  position: absolute;
 }
 
 .about-text p {
