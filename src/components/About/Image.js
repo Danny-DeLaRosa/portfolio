@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "/Users/delarosadn/Desktop/code.nosync/portfolio/src/components/Components.css"
+import "/Users/delarosadn/Desktop/code.nosync/portfolio/src/components/Components.css";
 
-const Images = () =>{
+const Images = () => {
   const [images, setImages] = useState([
     "https://picsum.photos/200/300?random=1",
     "https://picsum.photos/200/300?random=2",
@@ -16,10 +16,15 @@ const Images = () =>{
   return (
     <div className="about-images">
       {images.map((image, index) => (
-        <img className="about-image" key={index} src={image} alt="random image" />
+        <img
+          className="about-image"
+          key={index}
+          src={image}
+          alt="random image"
+        />
       ))}
     </div>
   );
-}
+};
 
 export default Images;
