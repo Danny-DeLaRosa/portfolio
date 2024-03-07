@@ -1,4 +1,4 @@
-/* About page */
+/* Images */
 
 .about-images {
     /* background-color: red; */
@@ -16,5 +16,11 @@
 .about-images img {
     height: 300px;
     width: 300px;
+}
+
+/* Card */
+
+.card {
+    background-color: white !important;
 }
   

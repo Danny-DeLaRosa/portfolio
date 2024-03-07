@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "/Users/learnacademy/Desktop/Coding/portfolio/src/components/Components.css"
+import "/Users/delarosadn/Desktop/code.nosync/portfolio/src/components/Components.css"
 
-function Images() {
+const Images = () =>{
   const [images, setImages] = useState([
     "https://picsum.photos/200/300?random=1",
     "https://picsum.photos/200/300?random=2",

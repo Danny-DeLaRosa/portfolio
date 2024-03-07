@@ -1,24 +1,13 @@
 import React from "react";
 import Images from "../components/About/Image";
 import { useNavigate } from "react-router-dom";
-import puppy from "/Users/delarosadn/Desktop/code.nosync/portfolio/src/assets/puppy.jpeg"
+import Card from "/Users/delarosadn/Desktop/code.nosync/portfolio/src/components/About/Card.js";
 
 const About = () => {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/");
   };
-
-  const images = [
-    "https://picsum.photos/id/1/200/300",
-    "https://picsum.photos/id/23/200/300",
-    "https://picsum.photos/id/34/200/300",
-    "https://picsum.photos/id/45/200/300",
-    "https://picsum.photos/id/56/200/300",
-    "https://picsum.photos/id/67/200/300",
-    "https://picsum.photos/id/78/200/300",
-    "https://picsum.photos/id/89/200/300",
-  ]
 
   return (
     <main className="about">
@@ -27,12 +16,19 @@ const About = () => {
         <h1>About Danny</h1>
       </div>
       <div className="about-text">
-        <p>I'm Danny, a full-stack junior software engineer with an emphasis on backend development.<br/> <br/> I enjoy collaborating on fun projects; if you are interested in working together, please feel free to reach out!<br /><br /> I hail from San Diego, CA, and have a special love for beer, coffee, and food! Let's grab a drink if you're in my neighborhood! </p>
+        <p>I'm Danny, a full-stack junior software engineer with an emphasis on backend development. My immediate goals are to help a lucky company reach their potential through software development.<br/> <br/> A bigger goal of mine is creating my own indie game or contributing to the next big title in the gaming industry. Video games have always been a big part of my life so I would love to give what i can to the gaming community.<br /><br /> I enjoy collaborating on fun projects; if you are interested in working together, please feel free to reach out and connect! </p>
       </div>
-      <div className="images">
-        {images.map((image, index) => (
-          <img key={index} src={image} alt="puppy" />
-        ))}
+      <Images />
+      <div className="about-2">
+      <h1 >
+        A little more about me 
+      </h1>
+      <p>
+      I hail from San Diego, CA, I am absolutely absessed about nature! I love hiking, camping, boondocking in our RV, and the beach!! My home will always be San Diego but exploring new cities and contries is my passion. You can likely catch me at a local brewery or pizza shop. Some say beer is the answer to life's problems, but I'm still trying to figure out the question!"
+      </p>
+      </div>
+      <div className="card container">
+      <Card />  
       </div>
     </main>
   );
