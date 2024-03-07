@@ -149,7 +149,8 @@
   color: white;
   font-size: 30px;
   text-align: center;
-  position: fixed;
+  margin-right: auto;
+  position: absolute;
 }
 
 .about-text p {
@@ -161,5 +162,23 @@
   margin-top: 50px;
   align-items: center;
   font-size:large ;
-
 }
+
+.about-2 h1{
+  background-color: transparent!important;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 75px;
+}
+
+.about-2 p {
+  height: fit-content;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  align-items: center;
+  font-size:large ;
+}
+
