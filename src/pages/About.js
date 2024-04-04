@@ -1,7 +1,6 @@
 import React from "react";
 import Images from "../components/About/Image";
 import { useNavigate } from "react-router-dom";
-import Card from "/Users/delarosadn/Desktop/code.nosync/portfolio/src/components/About/Card.js";
 
 const About = () => {
   const navigate = useNavigate();
@@ -41,8 +40,49 @@ const About = () => {
           to figure out the question!"
         </p>
       </div>
-      <div className="card container">
-        <Card />
+      <div className="footer-container">
+        <div className="footer">
+          <h1>Contact Me</h1>
+          <p>
+            <a href="mailto:<danny.devlarosa@gmail.com>">danny.devlarosa@gmail.com</a>
+          </p>
+        </div>
+        <div className="footer">
+          <h1>Follow Me</h1>
+          <a
+            href="https://www.linkedin.com/in/danny-de-la-rosa/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/dannydela"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
+          <a
+            href="https://www.instagram.com/dannydela/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://www.youtube.com/dannydela/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Youtube
+          </a>
+        </div>
+        <div className="footer">
+          <h1>Work experience</h1>
+          <a href="http://" target="_blank">Resume</a>
+          <a href="http://" target="_blank">History</a>
+        </div>
       </div>
     </main>
   );

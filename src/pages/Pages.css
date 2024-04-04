@@ -181,3 +181,23 @@
   align-items: center;
   font-size: large;
 }
+
+.footer-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* padding: 10px; */
+  padding: 15px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  border-style: solid;
+  height:100px;
+  width: auto;
+}
+
+.footer a {
+  padding: 10px;
+  margin: auto;
+}
