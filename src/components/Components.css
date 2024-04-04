@@ -1,26 +1,25 @@
 /* Images */
 
 .about-images {
-    /* background-color: red; */
-    display: grid;
-    gap: 10px;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin-top: 50px;
-    object-fit: fill ;
+  /* background-color: red; */
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 50px;
+  object-fit: fill;
 }
 
 .about-images img {
-    height: 300px;
-    width: 300px;
+  height: 300px;
+  width: 300px;
 }
 
 /* Card */
 
 .card {
-    background-color: white !important;
+  background-color: white !important;
 }
-  
