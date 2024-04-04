@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "/Users/delarosadn/Desktop/code.nosync/portfolio/src/components/Components.css";
+import "/Users/delarosadn/Desktop/code.nosync/portfolio/src/components/Components.css"
 
 const Images = () => {
   const [images, setImages] = useState([
